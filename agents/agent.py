@@ -40,7 +40,7 @@ class DDPG():
 
         # Algorithm parameters
         self.gamma = 0.95  # discount factor 0.99
-        self.tau = 0.001  # for soft update of target parameters 0.01
+        self.tau = 0.01  # for soft update of target parameters 0.01
 
         # Score tracker and learning parameters
         self.total_reward = None
