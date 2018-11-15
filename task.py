@@ -31,17 +31,7 @@ class Task():
     def get_reward(self):
         """Uses current pose of sim to return reward."""
         reward = 1.-.3*(abs(self.sim.pose[:3] - self.target_pos)).sum()
-#         reward = 1.-.003*(abs(self.sim.pose[:3] - self.target_pos)).sum()
-
-        # task.sim.pose：四周飞行器在(x, y, z)坐标系中的位置和欧拉角。
-        # task.sim.v：四轴飞行器在(x, y, z)坐标系中的速度。
-        # task.sim.angular_v：三个欧拉角的弧度 / 每秒。
-
-        # 可以使用项目一的奖励函数进行适度修改
-
-#         reward = -min(abs(self.target_pos[2] - self.sim.init_pose[2]), 20.0)
-#         if self.sim.init_pose[2] >= self.target_pos[2]:
-#             reward += 10
+            
         return reward
 
     def step(self, rotor_speeds):
@@ -60,3 +50,4 @@ class Task():
         self.sim.reset()
         state = np.concatenate([self.sim.pose] * self.action_repeat)
         return state
+
